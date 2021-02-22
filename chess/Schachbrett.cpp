@@ -6,7 +6,6 @@
 using namespace std;
 
 Schachbrett::Schachbrett() {
-
     //Beschriftung Schabrett schach[Zeile][Spalte]
     // nicht nötig
     // die bezeichnung der Felder sollte man extern speichern
@@ -53,6 +52,10 @@ Schachbrett::Schachbrett() {
         schach[7][i] = 'b';
     }
 
+
+    
+
+
     //restliche Felder leer initialisieren
     for (int spalte = 3; spalte < 7; spalte++) {
         for (int zeile = 1; zeile < 9; zeile++) {
@@ -74,13 +77,49 @@ void Schachbrett::printField() {
     cout << endl << endl;
 }
 
+bool Schachbrett::feldBesetzt(int x2, int y2) {
+    if (schach[x2][y2] != '0') {
+        return true;
+    }
+    else return false;
+}
 
+
+int Schachbrett::ZugBauer(int x1, int y1, int x2, int y2, char figur) {
+   
+    
+    
+    return 0;
+}
 
 int main() {
     Schachbrett spiel;
     spiel.printField();
-    
+    int x1, y1, x2, y2;
+    char figur;         
 
+    while (true) {
+        
+        cout << "figur: "; cin >> figur;  cout << endl;
+        cout << "x1: " ; cin >> x1; cout << endl;
+        cout << "y1 "; cin >> y1; cout << endl;
+        cout << "x2 "; cin >> x2; cout << endl;
+        cout << "y2 "; cin >> y2; cout << endl;
+
+
+        switch (figur) {
+        case 'b': 
+            spiel.ZugBauer(x1, y1, x2, y2, figur);
+            break;
+        default: 
+            cout << "Figur gibt es nicht";
+        }
+
+        
+    }
+
+    
+    
 
     return 0;
 }

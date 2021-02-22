@@ -11,15 +11,12 @@ public:
 	// standard Destruktor
 	~Schachbrett();
 	void printField();
-	char welcheFigur(int x1, int x2);
-	bool feldFrei(int y1, int y2);
-	bool richtigeFigur(char figur, int spieler);
-	void zug(int x1, int x2, int y1, int y2, char figur);
-	int zugTurm(int x1, int x2, int y1, int y2, char figur);
-	int zugLaeufer(int x1, int x2, int y1, int y2, char figur);
-	// examplarisch verbesserte Zugmethode
-	bool zugKoenig(int x1, int x2, int y1, int y2);
-	int zugBauerB(int x1, int x2, int y1, int y2, char figur);
-	int zugBauerb(int x1, int x2, int y1, int y2, char figur);
-	int zugSpringer(int x1, int x2, int y1, int y2, char figur);
+	bool feldBesetzt(int y1, int y2);
+	void zugAusfuehren(int x1, int x2, int y1, int y2, char figur);
+	char welcheFigurSteht(int x1, int x2);
+
+
+	//Funktionen was die verschiedenen Figuren dürfen 
+	int ZugBauer(int x1, int y1, int x2, int y2, char figur);
+	
 };
