@@ -84,9 +84,25 @@ bool Schachbrett::feldBesetzt(int x2, int y2) {
     else return false;
 }
 
+void Schachbrett::zugAusfuehren(int x1, int x2, int y1, int y2, char figur) {
+    schach[x1][y1] = '0';
+    schach[x2][y2] = figur;
+}
+
+char Schachbrett::welcheFigurSteht(int x1, int x2) {
+    char figur = schach[x1][x2];
+    return figur;
+}
+
+
+
 
 int Schachbrett::ZugBauer(int x1, int y1, int x2, int y2, char figur) {
    
+    if (schach[x2][y2] != feldBesetzt(x2, y2)) {
+        zugAusfuehren(x1, y1, x2, y2, figur);
+    }
+
     
     
     return 0;

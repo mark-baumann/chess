@@ -17,6 +17,6 @@ public:
 
 
 	//Funktionen was die verschiedenen Figuren dürfen 
-	int ZugBauer(int x1, int y1, int x2, int y2, char figur);
+	int ZugBauer(int x1, int y1, int x2, int y2, char figur); 
 	
 };
