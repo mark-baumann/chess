@@ -14,9 +14,10 @@ public:
 	bool feldBesetzt(int y1, int y2);
 	void zugAusfuehren(int x1, int x2, int y1, int y2, char figur);
 	char welcheFigurSteht(int x1, int x2);
+	char welcheFigur(int x1, int x2);
 
 
 	//Funktionen was die verschiedenen Figuren dürfen 
 	int ZugBauer(int x1, int y1, int x2, int y2, char figur); 
-	
+	int ZugBauerB(int x1, int y1, int x2, int y2, char figur);
 };

@@ -85,8 +85,8 @@ bool Schachbrett::feldBesetzt(int x2, int y2) {
 }
 
 void Schachbrett::zugAusfuehren(int x1, int x2, int y1, int y2, char figur) {
-    schach[x1][y1] = '0';
-    schach[x2][y2] = figur;
+    schach[x1][x2] = '0';
+    schach[y1][y2] = figur;
 }
 
 char Schachbrett::welcheFigurSteht(int x1, int x2) {
@@ -94,17 +94,21 @@ char Schachbrett::welcheFigurSteht(int x1, int x2) {
     return figur;
 }
 
-
-
-
-int Schachbrett::ZugBauer(int x1, int y1, int x2, int y2, char figur) {
-   
-    if (schach[x2][y2] != feldBesetzt(x2, y2)) {
-        zugAusfuehren(x1, y1, x2, y2, figur);
+char Schachbrett::welcheFigur(int x1,int x2){
+        char figur = schach[x1][x2];
+        return figur;
     }
 
+
+int Schachbrett::ZugBauer(int x1, int x2, int y1, int y2, char figur) {
+   
+  
+    Schachbrett::zugAusfuehren(x1, x2, y1, y2, figur);
     
-    
+    return 0;
+}
+
+int Schachbrett::ZugBauerB(int x1, int x2, int y1, int y2, char figur) {
     return 0;
 }
 
@@ -113,20 +117,25 @@ int main() {
     spiel.printField();
     int x1, y1, x2, y2;
     char figur;         
+    int gezogen;
 
     while (true) {
         
-        cout << "figur: "; cin >> figur;  cout << endl;
-        cout << "x1: " ; cin >> x1; cout << endl;
-        cout << "y1 "; cin >> y1; cout << endl;
-        cout << "x2 "; cin >> x2; cout << endl;
-        cout << "y2 "; cin >> y2; cout << endl;
+        cout << "y1: " ; cin >> x1; cout << endl;
+        cout << "x1 "; cin >> y1; cout << endl;
+        cout << "y2 "; cin >> x2; cout << endl;
+        cout << "x2 "; cin >> y2; cout << endl;
 
+        figur = spiel.welcheFigur(x1, x2);
 
         switch (figur) {
         case 'b': 
-            spiel.ZugBauer(x1, y1, x2, y2, figur);
+           spiel.ZugBauer(x1, x2, x2, y2, figur);
+           system("cls");
+           spiel.printField();
             break;
+        case 'B':
+
         default: 
             cout << "Figur gibt es nicht";
         }
@@ -134,8 +143,7 @@ int main() {
         
     }
 
-    
-    
+
 
     return 0;
 }
